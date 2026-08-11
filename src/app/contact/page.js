@@ -2,9 +2,9 @@ import React from "react";
 import { forms , seo } from "@/data/data";
 
 export const metadata = {
-    title: `Contact Me | ${seo.title}`,
-    description: "Get in touch with me to discuss projects, collaborations, or just to say hello.",
-    keywords: "contact, get in touch, collaboration, email, message, web developer"
+    title: `Contato | ${seo.title}`,
+    description: "Entre em contato comigo para discutir projetos, colaborações ou apenas para dizer oi.",
+    keywords: "contato, mensagem, email, colaboração, desenvolvedor web"
 };
 
 function Contact() {
@@ -13,7 +13,7 @@ function Contact() {
             <div className="md:w-[700px] w-[100%] mt-5 p-4">
                 <main className="flex flex-col gap-2">
                     <h1 className="text-xl font-medium before:content-['>'] before:mr-1">
-                        Contact Me
+                        Contato
                     </h1>
                     <div className="p-1">
                         <form
@@ -24,7 +24,7 @@ function Contact() {
                             <div>
                                 <div>
                                     <span className="uppercase text-sm text-base-content/80 font-bold">
-                                        Full Name
+                                        Nome Completo
                                     </span>
                                     <input
                                         className="w-full mt-1 p-3 rounded-lg focus:outline-none border border-base-content text-base-content/80 focus:shadow-outline"
@@ -46,7 +46,7 @@ function Contact() {
                                 </div>
                                 <div className="mt-3">
                                     <span className="uppercase text-sm text-base-content/80 font-bold">
-                                        Message
+                                        Mensagem
                                     </span>
                                     <textarea
                                         className="w-full mt-1 p-3 rounded-lg focus:outline-none border border-base-content text-base-content/80 focus:shadow-outline"
@@ -56,7 +56,7 @@ function Contact() {
                                 </div>
                                 <div className="mt-2">
                                     <button className="uppercase text-sm font-bold tracking-wide bg-base-content text-base-100 p-3 cursor-pointer hover:bg-base-content/95 rounded-lg w-full focus:outline-none focus:shadow-outline">
-                                        Send Message
+                                        Enviar Mensagem
                                     </button>
                                 </div>
                             </div>

@@ -1,26 +1,20 @@
 "use client";
 import { projects } from "@/data/data";
 import Link from "next/link";
+import Timeline from "./Timeline";
 
 export default function ProjectsList() {
     return (
         <div className="mt-10 scroll-mt-14 flex flex-col gap-2" id="projects">
-            <div className="flex items-end justify-between">
-                <h2 className="text-xl font-medium before:content-['>'] before:mr-1">
-                    Projects
-                </h2>
-                <Link href="/projects" className="text-sm flex underline hover:text-base-content/80">
-                    See All
-                </Link>
-            </div>
+            <h2 className="text-xl font-medium before:content-['>'] before:mr-1">
+                Projetos
+            </h2>
             <div className="flex flex-col gap-2">
                 {projects.pinProjects.map((item, index) => (
-                    <a
-                        href={item.link}
+                    <Link
+                        href={`/projects/${item.slug}`}
                         key={index}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="group cursor-pointer p-4 border-2 border-base-content/20 hover:border-base-content/80 rounded-2xl hover:scale-102 transition-transform duration-200"
+                        className="group p-4 border-2 border-base-content/20 hover:border-base-content/80 rounded-2xl hover:scale-102 transition-transform duration-200"
                     >
                         <div className="flex flex-col gap-2 justify-between">
                             <div className="flex items-center justify-between">
@@ -35,7 +29,7 @@ export default function ProjectsList() {
                                     height="16"
                                     viewBox="0 0 32 32"
                                     aria-hidden="true"
-                                    className="transform transition-transform duration-300 group-hover:rotate-45 group-active:rotate-45"
+                                    className="transform transition-transform duration-300 group-hover:rotate-45 group-active:rotate-45 text-base-content/60"
                                     xmlns="http://www.w3.org/2000/svg"
                                 >
                                     <path d="M10 6L10 8 22.59 8 6 24.59 7.41 26 24 9.41 24 22 26 22 26 6 10 6z"></path>
@@ -55,9 +49,10 @@ export default function ProjectsList() {
                                 ))}
                             </div>
                         </div>
-                    </a>
+                    </Link>
                 ))}
             </div>
+            <Timeline />
         </div>
     );
 }

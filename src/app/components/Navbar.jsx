@@ -2,13 +2,10 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { usePathname } from "next/navigation";
 
 export default function Navbar() {
     const [hideOnMobile, setHideOnMobile] = useState(true);
-    const pathname = usePathname();
     const [isDark, setIsDark] = useState(false);
-    const blogs = pathname === "/blogs";
 
     useEffect(() => {
         const savedTheme = localStorage.getItem("theme");
@@ -48,10 +45,22 @@ export default function Navbar() {
                             >
                                 <li>
                                     <Link
-                                        href="/#about"
+                                        href="/#inicio"
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                            window.scrollTo({
+                                                top: 0,
+                                                behavior: "smooth",
+                                            });
+                                            history.replaceState(
+                                                null,
+                                                "",
+                                                "#inicio"
+                                            );
+                                        }}
                                         className="hover:underline"
                                     >
-                                        About
+                                        Início
                                     </Link>
                                 </li>
                                 <li>
@@ -59,7 +68,7 @@ export default function Navbar() {
                                         href="/#projects"
                                         className="hover:underline"
                                     >
-                                        Projects
+                                        Projetos
                                     </Link>
                                 </li>
                                 <li>
@@ -67,32 +76,18 @@ export default function Navbar() {
                                         href="/#experience"
                                         className="hover:underline"
                                     >
-                                        Experience
+                                        Experiências
                                     </Link>
                                 </li>
                                 <li>
                                     <Link
-                                        href="/contact"
+                                        href="/#timeline"
                                         className="hover:underline"
                                     >
-                                        Contact
+                                        Linha do Tempo
                                     </Link>
                                 </li>
                             </ul>
-
-                            <Link
-                                href="/blogs"
-                                className="hover:underline hidden sm:block"
-                            >
-                                Blogs
-                            </Link>
-
-                            <Link
-                                href={blogs ? "/" : "/blogs"}
-                                className="hover:underline block sm:hidden"
-                            >
-                                {blogs ? "Home" : "Blogs"}
-                            </Link>
                         </div>
                         <div className="flex items-center gap-2">
                             <button
